@@ -22,11 +22,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 // customers rutes
-Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
+Route::post('/customer', [CustomerController::class, 'create'])->name('customer.create');
+Route::get('/customer/{id}', [CustomerController::class, 'read'])->name('customer.read');
+Route::put('/customer/{id}', [CustomerController::class, 'update'])->name('customer.update');
+Route::delete('/customer/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
 
 // sales rutes
-Route::get('/sales', [SaleController::class, 'index'])->name('sales.index');
-Route::get('/sales/{id}', [SaleController::class, 'show'])->name('sales.show');
-
+Route::get('/sale', [SaleController::class, 'index'])->name('sale.index');
+Route::post('/sale', [SaleController::class, 'create'])->name('sale.create');
+Route::get('/sale/{id}', [SaleController::class, 'read'])->name('sale.read');
 // solditems rutes
-Route::get('/solditems', [SoldItemController::class, 'index'])->name('solditems.index');
+Route::get('/solditem', [SoldItemController::class, 'index'])->name('solditem.index');
+Route::get('sale/{id}/solditems', [SoldItemController::class, 'showBySale'])->name('soldItems.showBySale');

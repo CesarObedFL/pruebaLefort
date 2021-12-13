@@ -11,4 +11,23 @@ class CustomerController extends Controller
     {
         return Customer::all();
     }
+
+    public function create(Request $r) {
+        return true;
+    }
+
+    public function read($id)
+    {
+        return Customer::findOrFail($id);
+    }
+
+    public function update(Request $r, $id)
+    {
+        return true;
+    }
+
+    public function delete($id)
+    {
+        return true;
+    }
 }

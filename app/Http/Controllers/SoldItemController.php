@@ -12,4 +12,9 @@ class SoldItemController extends Controller
         return SoldItem::all();
     }
 
+    public function showBySale($id)
+    {
+        return SoldItem::where('sale_id', $id)->get();
+    }
+
 }
